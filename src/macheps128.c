@@ -9,4 +9,7 @@ void macheps_fp128_init(struct fp_params *param)
 
 void macheps_fp128_compute(struct fp_params *param)
 {
+    param->epsilon /= 2.0Q;
+
+    param->sum = param->value + param->epsilon;
 }
