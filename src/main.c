@@ -28,13 +28,26 @@ int main(int argc, char *argv[])
     }
 
     char buffer[128];
-    memset(buffer, 0, sizeof(buffer));
 
+    memset(buffer, 0, sizeof(buffer));
     quadmath_snprintf(buffer, sizeof(buffer), "%.36Qe", param.epsilon);
 
     printf("Machine epsilon (fp128):\n");
     printf("    Loop counter: %I64u\n", cnt);
     printf("    epsilon: %s\n", buffer);
+
+    const __float128 epsilon2 = 2.0Q * param.epsilon;
+
+    memset(buffer, 0, sizeof(buffer));
+    quadmath_snprintf(buffer, sizeof(buffer), "%.36Qe", epsilon2);
+
+    printf("    epsilon2: %s\n", buffer);
+
+    memset(buffer, 0, sizeof(buffer));
+    quadmath_snprintf(buffer, sizeof(buffer), "%.36Qe", FLT128_EPSILON);
+
+    printf("\n");
+    printf("Machine epsilon (libquadmath): %s\n", buffer);
 
     return EXIT_SUCCESS;
 }
