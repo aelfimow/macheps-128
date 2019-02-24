@@ -29,3 +29,6 @@ Machine epsilon (fp128):
 
 Machine epsilon (libquadmath): 1.925929944387235853055977942584927319e-34
 ```
+
+## Note
+See also [macheps](https://github.com/aelfimow/macheps).
